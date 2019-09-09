@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="css/site.css" />
+    <link rel="stylesheet" href="css/keys.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+        integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+    <!--3rd party scripts-->
+    <script src="Scripts/vue.min.js"></script>
+    <script src="Scripts/shortcut.min.js"></script>
+</head>
+
+<body>
+    <div id="app" class="maingrid-container">
+        <div class="maingrid-header">
+            <div class="headergrid-container">
+                <div class="headergrid-logo">
+                    <a href="index.html">
+                        <!-- <img src="images/bingo-logo.png" width="40px" height="40px" alt="Bingo" /> -->
+                    </a>
+                </div>
+                <div class="headergrid-links">
+                    <a href="https://github.com/fellipeborges/bingo" target="_blank"
+                        title="Código fonte no Github">Código fonte</a> <i class="fas fa-code"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="maingrid-body">
+
+            <!-- Botão Gerar cartela -->
+            <div class="gerar-cartela" v-if="currentGame.state != 'on'">
+                <button v-on:click="gerarCartela">G.C</button>
+            </div>
+            <!-- Cartela -->
+            <div class="cartela" v-if="currentGame.state == 'on'">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>B</th>
+                            <th>I</th>
+                            <th>N</th>
+                            <th>G</th>
+                            <th>O</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Line B-->
+                        <tr>
+                            <td v-bind:class="[this.currentGame.numerosMarcados[0] ? 'numero-marcado' : '']" v-on:click="marcarNumero(0)">{{this.currentGame.numbersB[0]}}</td>
+                            <td v-bind:class="[this.currentGame.numerosMarcados[1] ? 'numero-marcado' : '']" v-on:click="marcarNumero(1)">{{this.currentGame.numbersI[0]}}</td>
+                            <td v-bind:class="[this.currentGame.numerosMarcados[2] ? 'numero-marcado' : '']" v-on:click="marcarNumero(2)">{{this.currentGame.numbersN[0]}}</td>
+                            <td v-bind:class="[this.currentGame.numerosMarcados[3] ? 'numero-marcado' : '']" v-on:click="marcarNumero(3)">{{this.currentGame.numbersG[0]}}</td>
+                            <td v-bind:class="[this.currentGame.numerosMarcados[4] ? 'numero-marcado' : '']" v-on:click="marcarNumero(4)">{{this.currentGame.numbersO[0]}}</td>
+                        </tr>
+
+                        <!-- Line I-->
+                        <tr>
+                            <td>{{this.currentGame.numbersB[1]}}</td>
+                            <td>{{this.currentGame.numbersI[1]}}</td>
+                            <td>{{this.currentGame.numbersN[1]}}</td>
+                            <td>{{this.currentGame.numbersG[1]}}</td>
+                            <td>{{this.currentGame.numbersO[1]}}</td>
+                        </tr>
+
+                        <!-- Line N-->
+                        <tr>
+                            <td>{{this.currentGame.numbersB[2]}}</td>
+                            <td>{{this.currentGame.numbersI[2]}}</td>
+                            <td><i class="fas fa-gift"></i></td>
+                            <td>{{this.currentGame.numbersG[2]}}</td>
+                            <td>{{this.currentGame.numbersO[2]}}</td>
+                        </tr>
+
+                        <!-- Line G-->
+                        <tr>
+                            <td>{{this.currentGame.numbersB[3]}}</td>
+                            <td>{{this.currentGame.numbersI[3]}}</td>
+                            <td>{{this.currentGame.numbersN[3]}}</td>
+                            <td>{{this.currentGame.numbersG[3]}}</td>
+                            <td>{{this.currentGame.numbersO[3]}}</td>
+                        </tr>
+
+                        <!-- Line O-->
+                        <tr>
+                            <td>{{this.currentGame.numbersB[4]}}</td>
+                            <td>{{this.currentGame.numbersI[4]}}</td>
+                            <td>{{this.currentGame.numbersN[4]}}</td>
+                            <td>{{this.currentGame.numbersG[4]}}</td>
+                            <td>{{this.currentGame.numbersO[4]}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+        <div class="maingrid-footer">
+            <div class="footer">
+                Desenvolvido por <a href="https://www.linkedin.com/in/fellipe-borges-do-nascimento-168534a5/"
+                    target="_blank" title="Linkedin de Fellipe Borges">Fellipe Borges</a>
+            </div>
+        </div>
+    </div>
+    <script src="Scripts/App/bingoApp.js"></script>
+    <script src="Scripts/App/screenShortcuts.js"></script>
+</body>
+
+</html>

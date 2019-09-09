@@ -1,0 +1,142 @@
+﻿* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    font-size: 14px;
+}
+
+a {
+    color: #393939;
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+button {
+    border: 1px solid #ccc;
+    padding: 3px;
+    cursor: pointer;
+    text-align: center;
+    background-color: #fafafa;
+    color: #343333;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+    button:hover {
+        background-color: #ebe7e7;
+    }
+
+    button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+/*-------------------------------------------*/
+/*Main grid*/
+/*-------------------------------------------*/
+.maingrid-container {
+    display: grid;
+    grid-template-rows: 60px auto 30px;
+    width: 95vw;
+    height: 95vh;
+}
+
+.maingrid-header {
+    background-color: #fff;
+}
+
+.maingrid-body {
+    background-color: #f5f5f5;
+    display: grid;
+    min-height: 0;
+    height: 100%;
+}
+
+.maingrid-footer {
+    background-color: #fff;
+}
+
+/*-------------------------------------------*/
+/*Header grid*/
+/*-------------------------------------------*/
+.headergrid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    height: 60px;
+}
+
+.headergrid-logo {
+    text-align: left;
+    padding: 10px;
+}
+
+.headergrid-links {
+    text-align: right;
+    padding: 10px;
+    font-size: 12px;
+}
+
+    .headergrid-links .button-sound {
+        margin-top: 3px;
+    }
+
+/*-------------------------------------------*/
+/*Gerar cartela*/
+/*-------------------------------------------*/
+.gerar-cartela {
+    grid-row: 2;
+    padding: 20px;
+    text-align: center;
+}
+
+    .gerar-cartela button {
+        background-color: #171717;
+        color: #fff;
+        font-size: 6vw;
+        padding: 1vw;
+    }
+
+/*-------------------------------------------*/
+/*Cartela*/
+/*-------------------------------------------*/
+.cartela {
+    grid-row: 2;
+    padding: 20px;
+    text-align: center;
+}
+
+.cartela table {
+    width: 86vw;
+    height: 90vw;
+    font-size: 6vw;
+}
+
+.cartela table thead tr th {
+    font-size: 5vw;
+}
+
+.cartela table thead tr th {
+    width: 20%;
+}
+
+.numero-marcado {
+    background-color: aqua;
+}
+
+/*-------------------------------------------*/
+/*Footer*/
+/*-------------------------------------------*/
+.footer {
+    text-align: center;
+    font-style: italic;
+    font-size: 12px;
+    margin-top: 6px;
+}
