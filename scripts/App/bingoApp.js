@@ -13,15 +13,21 @@
             numbersN: [],
             numbersG: [],
             numbersO: [],
-            numerosMarcados: [
-                [0, false],
-                [1, false],
-                [2, false],
-                [3, false],
-                [4, false]
-            ]
+            numerosMarcados: [],
+            tableStyle: {
+                backgroundColor: "#fff"
+            }
         },
+        backgroundColors:[
+            "#f5e7c6", "#c6f5f1", "#c6cbf5", "#e1c6f5", "#f5c6f1", "#f5c6d7"
+        ],
         constants: {
+        }
+    },
+    computed: {
+        qtdeNumerosMarcados: function() {
+            return 999;
+            return this.currentGame.numerosMarcados.filter(t => t == true).length;
         }
     },
 
@@ -36,8 +42,9 @@
         // Cartela
         gerarCartela() {
             var vm = this;
-            vm.currentGame.state = "on";
             vm.resetNumerosMarcados();
+            vm.currentGame.state = "on";
+            vm.currentGame.tableStyle = vm.getRandomTableStyle();
             vm.currentGame.numbersB = vm.shuffleArray(vm.numbersBSource);
             vm.currentGame.numbersI = vm.shuffleArray(vm.numbersISource);
             vm.currentGame.numbersN = vm.shuffleArray(vm.numbersNSource);
@@ -48,6 +55,16 @@
         marcarNumero(posicao) {
             let value = !this.currentGame.numerosMarcados[posicao];
             this.$set(this.currentGame.numerosMarcados,posicao, value)
+        },
+
+        getRandomTableStyle() {
+            let max = this.backgroundColors.length;
+            let idx = Math.ceil(Math.random()*max);
+            idx = idx-1;
+            console.log(idx);
+            return {
+                backgroundColor: this.backgroundColors[idx]
+            };
         },
 
         resetNumerosMarcados() {

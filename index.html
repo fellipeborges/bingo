@@ -40,16 +40,25 @@
             <div class="gerar-cartela" v-if="currentGame.state != 'on'">
                 <button v-on:click="gerarCartela">G.C</button>
             </div>
+
             <!-- Cartela -->
             <div class="cartela" v-if="currentGame.state == 'on'">
-                <table border="1">
+
+                Marcados: {{this.qtdeNumerosMarcados}}
+
+                <table v-bind:style="currentGame.tableStyle">
                     <thead>
                         <tr>
-                            <th>B</th>
+                            <!-- <th>B</th>
                             <th>I</th>
                             <th>N</th>
                             <th>G</th>
-                            <th>O</th>
+                            <th>O</th> -->
+                            <th>A</th>
+                            <th>A</th>
+                            <th>A</th>
+                            <th>A</th>
+                            <th>A</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -64,38 +73,38 @@
 
                         <!-- Line I-->
                         <tr>
-                            <td>{{this.currentGame.numbersB[1]}}</td>
-                            <td>{{this.currentGame.numbersI[1]}}</td>
-                            <td>{{this.currentGame.numbersN[1]}}</td>
-                            <td>{{this.currentGame.numbersG[1]}}</td>
-                            <td>{{this.currentGame.numbersO[1]}}</td>
+                            <td v-bind:class="[this.currentGame.numerosMarcados[5] ? 'numero-marcado' : '']" v-on:click="marcarNumero(5)">{{this.currentGame.numbersB[1]}}</td>
+                            <td v-bind:class="[this.currentGame.numerosMarcados[6] ? 'numero-marcado' : '']" v-on:click="marcarNumero(6)">{{this.currentGame.numbersI[1]}}</td>
+                            <td v-bind:class="[this.currentGame.numerosMarcados[7] ? 'numero-marcado' : '']" v-on:click="marcarNumero(7)">{{this.currentGame.numbersN[1]}}</td>
+                            <td v-bind:class="[this.currentGame.numerosMarcados[8] ? 'numero-marcado' : '']" v-on:click="marcarNumero(8)">{{this.currentGame.numbersG[1]}}</td>
+                            <td v-bind:class="[this.currentGame.numerosMarcados[9] ? 'numero-marcado' : '']" v-on:click="marcarNumero(9)">{{this.currentGame.numbersO[1]}}</td>
                         </tr>
 
                         <!-- Line N-->
                         <tr>
-                            <td>{{this.currentGame.numbersB[2]}}</td>
-                            <td>{{this.currentGame.numbersI[2]}}</td>
+                            <td v-bind:class="[this.currentGame.numerosMarcados[10] ? 'numero-marcado' : '']" v-on:click="marcarNumero(10)">{{this.currentGame.numbersB[2]}}</td>
+                            <td v-bind:class="[this.currentGame.numerosMarcados[11] ? 'numero-marcado' : '']" v-on:click="marcarNumero(11)">{{this.currentGame.numbersI[2]}}</td>
                             <td><i class="fas fa-gift"></i></td>
-                            <td>{{this.currentGame.numbersG[2]}}</td>
-                            <td>{{this.currentGame.numbersO[2]}}</td>
+                            <td v-bind:class="[this.currentGame.numerosMarcados[13] ? 'numero-marcado' : '']" v-on:click="marcarNumero(13)">{{this.currentGame.numbersG[2]}}</td>
+                            <td v-bind:class="[this.currentGame.numerosMarcados[14] ? 'numero-marcado' : '']" v-on:click="marcarNumero(14)">{{this.currentGame.numbersO[2]}}</td>
                         </tr>
 
                         <!-- Line G-->
                         <tr>
-                            <td>{{this.currentGame.numbersB[3]}}</td>
-                            <td>{{this.currentGame.numbersI[3]}}</td>
-                            <td>{{this.currentGame.numbersN[3]}}</td>
-                            <td>{{this.currentGame.numbersG[3]}}</td>
-                            <td>{{this.currentGame.numbersO[3]}}</td>
+                            <td v-bind:class="[this.currentGame.numerosMarcados[15] ? 'numero-marcado' : '']" v-on:click="marcarNumero(15)">{{this.currentGame.numbersB[3]}}</td>
+                            <td v-bind:class="[this.currentGame.numerosMarcados[16] ? 'numero-marcado' : '']" v-on:click="marcarNumero(16)">{{this.currentGame.numbersI[3]}}</td>
+                            <td v-bind:class="[this.currentGame.numerosMarcados[17] ? 'numero-marcado' : '']" v-on:click="marcarNumero(17)">{{this.currentGame.numbersN[3]}}</td>
+                            <td v-bind:class="[this.currentGame.numerosMarcados[18] ? 'numero-marcado' : '']" v-on:click="marcarNumero(18)">{{this.currentGame.numbersG[3]}}</td>
+                            <td v-bind:class="[this.currentGame.numerosMarcados[19] ? 'numero-marcado' : '']" v-on:click="marcarNumero(19)">{{this.currentGame.numbersO[3]}}</td>
                         </tr>
 
                         <!-- Line O-->
                         <tr>
-                            <td>{{this.currentGame.numbersB[4]}}</td>
-                            <td>{{this.currentGame.numbersI[4]}}</td>
-                            <td>{{this.currentGame.numbersN[4]}}</td>
-                            <td>{{this.currentGame.numbersG[4]}}</td>
-                            <td>{{this.currentGame.numbersO[4]}}</td>
+                            <td v-bind:class="[this.currentGame.numerosMarcados[20] ? 'numero-marcado' : '']" v-on:click="marcarNumero(20)">{{this.currentGame.numbersB[4]}}</td>
+                            <td v-bind:class="[this.currentGame.numerosMarcados[21] ? 'numero-marcado' : '']" v-on:click="marcarNumero(21)">{{this.currentGame.numbersI[4]}}</td>
+                            <td v-bind:class="[this.currentGame.numerosMarcados[22] ? 'numero-marcado' : '']" v-on:click="marcarNumero(22)">{{this.currentGame.numbersN[4]}}</td>
+                            <td v-bind:class="[this.currentGame.numerosMarcados[23] ? 'numero-marcado' : '']" v-on:click="marcarNumero(23)">{{this.currentGame.numbersG[4]}}</td>
+                            <td v-bind:class="[this.currentGame.numerosMarcados[24] ? 'numero-marcado' : '']" v-on:click="marcarNumero(24)">{{this.currentGame.numbersO[4]}}</td>
                         </tr>
                     </tbody>
                 </table>

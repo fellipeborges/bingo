@@ -108,7 +108,6 @@ button {
 /*Cartela*/
 /*-------------------------------------------*/
 .cartela {
-    grid-row: 2;
     padding: 20px;
     text-align: center;
 }
@@ -117,18 +116,23 @@ button {
     width: 86vw;
     height: 90vw;
     font-size: 6vw;
+    border-collapse: collapse;
 }
 
 .cartela table thead tr th {
     font-size: 5vw;
-}
-
-.cartela table thead tr th {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid black;
     width: 20%;
 }
 
+.cartela table tbody tr td {
+    border: 1px solid black;
+}
+
 .numero-marcado {
-    background-color: aqua;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 /*-------------------------------------------*/
