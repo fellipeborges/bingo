@@ -75,7 +75,7 @@
 
         resetNumerosMarcados() {
             var vm = this;
-            for(var i = 0; i < 24; i++) {
+            for(var i = 0; i <= 24; i++) {
                 this.$set(vm.currentGame.numerosMarcados, i, false)
             }
 

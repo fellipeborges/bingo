@@ -6,12 +6,9 @@
     <title>Binguera</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-
     <link rel="stylesheet" href="css/site.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
         integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-
-    <!--3rd party scripts-->
     <script src="scripts/vue.min.js"></script>
 </head>
 
@@ -65,7 +62,9 @@
                             v-on:click="marcarNumero(10)">{{this.currentGame.numbersB[2]}}</td>
                         <td v-bind:class="[this.currentGame.numerosMarcados[11] ? 'numero-marcado' : '']"
                             v-on:click="marcarNumero(11)">{{this.currentGame.numbersI[2]}}</td>
+
                         <td class="numero-marcado"><i class="fas fa-gift"></i></td>
+
                         <td v-bind:class="[this.currentGame.numerosMarcados[13] ? 'numero-marcado' : '']"
                             v-on:click="marcarNumero(13)">{{this.currentGame.numbersG[2]}}</td>
                         <td v-bind:class="[this.currentGame.numerosMarcados[14] ? 'numero-marcado' : '']"
@@ -120,10 +119,11 @@
             <!-- Botão Gerar cartela -->
             <br>
             <button v-on:click="gerarCartela">Gerar nova cartela</button>
-            
+
             <!-- Dev tools -->
             <div v-if="false">
-                <button v-on:click="marcarNumero(0);marcarNumero(1);marcarNumero(2);marcarNumero(3);marcarNumero(4);marcarNumero(5);marcarNumero(6);marcarNumero(7);marcarNumero(8);marcarNumero(9);marcarNumero(10);marcarNumero(11);marcarNumero(12);marcarNumero(13);marcarNumero(14);marcarNumero(15);marcarNumero(16);marcarNumero(17);marcarNumero(18);marcarNumero(19);">AAAAA</button>
+                <button
+                    v-on:click="marcarNumero(0);marcarNumero(1);marcarNumero(2);marcarNumero(3);marcarNumero(4);marcarNumero(5);marcarNumero(6);marcarNumero(7);marcarNumero(8);marcarNumero(9);marcarNumero(10);marcarNumero(11);marcarNumero(12);marcarNumero(13);marcarNumero(14);marcarNumero(15);marcarNumero(16);marcarNumero(17);marcarNumero(18);marcarNumero(19);">AAAAA</button>
                 <br><br>
                 qtdeNumerosMarcados: {{this.qtdeNumerosMarcados}}
                 <br>
@@ -131,7 +131,7 @@
             </div>
         </div>
 
-        
+
 
         <div class="footer">
             Desenvolvido por <a href="https://www.linkedin.com/in/fellipe-borges-do-nascimento-168534a5/"
@@ -144,4 +144,5 @@
     </div>
     <script src="scripts/bingoApp.js"></script>
 </body>
+
 </html>
