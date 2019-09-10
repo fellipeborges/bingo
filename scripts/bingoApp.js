@@ -7,7 +7,6 @@
         numbersGSource: [55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72],
         numbersOSource: [73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90],
         currentGame: {
-            state: "",
             numbersB: [],
             numbersI: [],
             numbersN: [],
@@ -26,8 +25,10 @@
     },
     computed: {
         qtdeNumerosMarcados: function() {
-            return 999;
             return this.currentGame.numerosMarcados.filter(t => t == true).length;
+        },
+        qtdeNumerosFaltam: function() {
+            return (24 - this.currentGame.numerosMarcados.filter(t => t == true).length);
         }
     },
 
@@ -39,11 +40,17 @@
     },
 
     methods: {
-        // Cartela
         gerarCartela() {
             var vm = this;
+
+            if (vm.qtdeNumerosMarcados > 0 && vm.qtdeNumerosFaltam > 0){
+                let conf = confirm("O jogo já foi iniciado. Deseja criar uma nova cartela?");
+                if (!conf){
+                    return;
+                }
+            }
+
             vm.resetNumerosMarcados();
-            vm.currentGame.state = "on";
             vm.currentGame.tableStyle = vm.getRandomTableStyle();
             vm.currentGame.numbersB = vm.shuffleArray(vm.numbersBSource);
             vm.currentGame.numbersI = vm.shuffleArray(vm.numbersISource);
@@ -61,7 +68,6 @@
             let max = this.backgroundColors.length;
             let idx = Math.ceil(Math.random()*max);
             idx = idx-1;
-            console.log(idx);
             return {
                 backgroundColor: this.backgroundColors[idx]
             };
@@ -69,11 +75,11 @@
 
         resetNumerosMarcados() {
             var vm = this;
-            //vm.currentGame.numerosMarcados = []
-            vm.currentGame.numerosMarcados.length = 0;
             for(var i = 0; i < 24; i++) {
-                vm.currentGame.numerosMarcados[i] = false;
+                this.$set(vm.currentGame.numerosMarcados, i, false)
             }
+
+            this.$forceUpdate();
         },
 
         shuffleArray(array) {
